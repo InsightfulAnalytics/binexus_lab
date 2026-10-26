@@ -1,0 +1,12 @@
+# The member's own rulebook stays untracked, so switching checkpoints never replaces it
+/CLAUDE.md
+
+# Power BI Desktop local state
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# Claude Code local settings and worktrees
+.claude/settings.local.json
+.claude/worktrees/
+
+__pycache__/

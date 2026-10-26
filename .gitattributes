@@ -1,0 +1,2 @@
+# Keep the CSVs byte for byte as the generator writes them (LF), so their SHA-256 matches the README
+*.csv -text
