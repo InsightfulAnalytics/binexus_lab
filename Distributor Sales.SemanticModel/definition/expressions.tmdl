@@ -1,0 +1,47 @@
+/// The folder holding the course CSVs. Module 0 has you clone the files repo to C:\binexus_lab, so
+/// this default works as it is; change it here if you cloned somewhere else.
+expression DataFolder = "C:\binexus_lab\data\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 26913e3f-20a7-4cc4-9a16-5205b8124379
+	queryGroup: Parameters
+
+	annotation PBI_ResultType = Text
+
+/// Staging only, never loaded: the flat order-lines export, typed once. Sales, Product, Customer
+/// and Supplier all start from it. Module 2 opens these queries and rebuilds them.
+expression OrderLines =
+		let
+		    Source = Csv.Document(
+		        File.Contents(DataFolder & "order_lines.csv"),
+		        [Delimiter = ",", Columns = 18, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]
+		    ),
+		    PromoteHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		    ChangeTypes = Table.TransformColumnTypes(
+		        PromoteHeaders,
+		        {
+		            {"OrderNumber", type text},
+		            {"LineNumber", Int64.Type},
+		            {"OrderDate", type date},
+		            {"ShipDate", type date},
+		            {"CustomerCode", type text},
+		            {"CustomerName", type text},
+		            {"Segment", type text},
+		            {"State", type text},
+		            {"SKU", type text},
+		            {"ProductName", type text},
+		            {"Brand", type text},
+		            {"Category", type text},
+		            {"SupplierCode", type text},
+		            {"SupplierName", type text},
+		            {"SupplierCountry", type text},
+		            {"Quantity", Int64.Type},
+		            {"UnitPrice", Currency.Type},
+		            {"UnitCost", Currency.Type}
+		        }
+		    )
+		in
+		    ChangeTypes
+	lineageTag: a158eb9e-8b40-4009-977b-5b4f2ea40ec0
+	queryGroup: Shipped
+
+	annotation PBI_ResultType = Table
+

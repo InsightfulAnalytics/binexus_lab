@@ -1,0 +1,112 @@
+/// One row per order line: the keys and the amounts from the flat export.
+table Sales
+	lineageTag: 7f6890e6-6f1a-464a-91ef-d6308aabb4f5
+
+	column OrderNumber
+		dataType: string
+		lineageTag: 6e5a2f77-81b1-47ab-b63e-72d3a531510e
+		summarizeBy: none
+		sourceColumn: OrderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 7283f598-ec48-48aa-ad7e-90fca2adda80
+		summarizeBy: sum
+		sourceColumn: LineNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 58811fd5-d395-4c36-8506-4283dbd59fc6
+		summarizeBy: none
+		sourceColumn: OrderDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ShipDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d5b3b2fc-9c76-49d5-be88-1ae60e61088c
+		summarizeBy: none
+		sourceColumn: ShipDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CustomerCode
+		dataType: string
+		lineageTag: 207d99dc-627b-426d-808f-7ff2fc9b0d1e
+		summarizeBy: none
+		sourceColumn: CustomerCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SKU
+		dataType: string
+		lineageTag: fa682863-097e-4b23-bb2f-fb3c4a2d3b03
+		summarizeBy: none
+		sourceColumn: SKU
+
+		annotation SummarizationSetBy = Automatic
+
+	column SupplierCode
+		dataType: string
+		lineageTag: 03d62097-9db2-4520-bc13-6710a08e1a6d
+		summarizeBy: none
+		sourceColumn: SupplierCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 409b1ede-4d34-4bed-9c9d-bc3d78055bcd
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitPrice
+		dataType: decimal
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 0f4b3a75-8943-44da-acef-4fc3f17b4f05
+		summarizeBy: sum
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-AU"}
+
+	column UnitCost
+		dataType: decimal
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: e2b9788e-af24-4266-a7e4-1bd0a4f3691b
+		summarizeBy: sum
+		sourceColumn: UnitCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-AU"}
+
+	partition Sales = m
+		mode: import
+		queryGroup: Shipped
+		source =
+				let
+				    KeepColumns = Table.SelectColumns(
+				        OrderLines,
+				        {"OrderNumber", "LineNumber", "OrderDate", "ShipDate", "CustomerCode", "SKU",
+				         "SupplierCode", "Quantity", "UnitPrice", "UnitCost"}
+				    )
+				in
+				    KeepColumns
+
+	annotation PBI_ResultType = Table

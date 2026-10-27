@@ -1,0 +1,47 @@
+/// One row per customer code that appears in the export.
+table Customer
+	lineageTag: 245c79ec-3956-4a6e-af56-0c5387eec7c8
+
+	column CustomerCode
+		dataType: string
+		lineageTag: 5ad5180a-d82b-4976-acb0-0f4abff9d125
+		summarizeBy: none
+		sourceColumn: CustomerCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerName
+		dataType: string
+		lineageTag: dba79096-e473-4920-a7f2-5f261011ade0
+		summarizeBy: none
+		sourceColumn: CustomerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Segment
+		dataType: string
+		lineageTag: ead625fd-7852-4ef9-87e9-693301474b6b
+		summarizeBy: none
+		sourceColumn: Segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		dataType: string
+		lineageTag: 2a57b769-6861-44f6-910c-d78bea5119d3
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Customer = m
+		mode: import
+		queryGroup: Shipped
+		source =
+				let
+				    KeepColumns = Table.SelectColumns(OrderLines, {"CustomerCode", "CustomerName", "Segment", "State"}),
+				    DistinctRows = Table.Distinct(KeepColumns)
+				in
+				    DistinctRows
+
+	annotation PBI_ResultType = Table

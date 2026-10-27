@@ -1,0 +1,39 @@
+/// One row per supplier code that appears in the export.
+table Supplier
+	lineageTag: 7543ebed-cf9c-4a95-855c-74ad254d760b
+
+	column SupplierCode
+		dataType: string
+		lineageTag: 10536b5c-f65f-4ccc-ba97-d6988765a6cb
+		summarizeBy: none
+		sourceColumn: SupplierCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SupplierName
+		dataType: string
+		lineageTag: 69cf5e88-3426-452b-93b8-6ced52bc4395
+		summarizeBy: none
+		sourceColumn: SupplierName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SupplierCountry
+		dataType: string
+		lineageTag: 37079633-d5f2-4e60-bd8f-3c3772155873
+		summarizeBy: none
+		sourceColumn: SupplierCountry
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Supplier = m
+		mode: import
+		queryGroup: Shipped
+		source =
+				let
+				    KeepColumns = Table.SelectColumns(OrderLines, {"SupplierCode", "SupplierName", "SupplierCountry"}),
+				    DistinctRows = Table.Distinct(KeepColumns)
+				in
+				    DistinctRows
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,47 @@
+/// One row per SKU that appears in the export.
+table Product
+	lineageTag: 8c18004a-06e6-400f-80ac-7592e4c35d2b
+
+	column SKU
+		dataType: string
+		lineageTag: 8bf2b86f-34da-45ba-b87e-1748ca9e8448
+		summarizeBy: none
+		sourceColumn: SKU
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		lineageTag: 16a00eb3-246b-4225-99c4-d0cc17dddc21
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Brand
+		dataType: string
+		lineageTag: c11ef5d5-e5de-4278-968a-fe9157f05b4e
+		summarizeBy: none
+		sourceColumn: Brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: c89a6f5d-b40b-441f-80f3-21b80f2637a4
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Product = m
+		mode: import
+		queryGroup: Shipped
+		source =
+				let
+				    KeepColumns = Table.SelectColumns(OrderLines, {"SKU", "ProductName", "Brand", "Category"}),
+				    DistinctRows = Table.Distinct(KeepColumns)
+				in
+				    DistinctRows
+
+	annotation PBI_ResultType = Table

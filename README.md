@@ -1,7 +1,25 @@
-# BI Nexus course files
+# BI Nexus Lab: course files
 
-The files for the BI Nexus Power BI foundations course: the dataset every module uses, the
-generator that makes it and, as the modules are built, a checkpoint per module.
+The files for the BI Nexus Lab Power BI foundations course: the dataset every module uses, the
+generator that makes it, the Power BI project you build through the course, and a checkpoint
+per module.
+
+## Get started
+
+1. Clone this repo to `C:\binexus_lab`. The project looks for its data in
+   `C:\binexus_lab\data\`; if you clone somewhere else, change the `DataFolder` parameter.
+   ```
+   git clone https://github.com/InsightfulAnalytics/binexus_lab.git C:\binexus_lab
+   ```
+2. Check your PC is ready:
+   ```
+   powershell -ExecutionPolicy Bypass -File C:\binexus_lab\check-setup.ps1
+   ```
+3. Check out the module you are starting, then open `Distributor Sales.pbip` in Power BI
+   Desktop and select **Refresh**. The project is saved without data, so it opens empty.
+   ```
+   git -C C:\binexus_lab checkout m0-start
+   ```
 
 ## The data
 
@@ -62,5 +80,15 @@ Each module starts from a git tag, `m0-start` to `m8-finish`, and each module's 
 previous module's finish, so any module can be started on its own. They arrive as the modules
 are built.
 
+| Tag | What the project holds |
+|---|---|
+| `m0-start` | Sales, Product, Customer and Supplier, split from the flat export by queries in the `Shipped` group; no relationships, no date table, no measures |
+| `m0-finish` | plus a `Total Sales` measure |
+
 Your rulebook, the `CLAUDE.md` you write in the course folder, is listed in `.gitignore`, so
 switching to another checkpoint never replaces it.
+
+## Licence
+
+MIT, see [LICENSE](LICENSE). The data is fictional: the company, customer, supplier, brand and
+product names were invented for the course, and any match with a real business is a coincidence.
