@@ -1,0 +1,21 @@
+relationship 3b1f6c52-8e0d-4a7a-b2c9-5d4e7f1a9c03
+	fromColumn: Sales.SKU
+	toColumn: Product.SKU
+
+relationship 9d2e4a71-6b3c-4f85-8a1d-0e7c5b2f4d16
+	fromColumn: Sales.CustomerCode
+	toColumn: Customer.CustomerCode
+
+relationship 5c8a2d19-4e7f-4b06-9c3a-7f1e2b6d8a24
+	fromColumn: Sales.SupplierCode
+	toColumn: Supplier.SupplierCode
+
+relationship 1e7b9f30-2c5d-4a8e-b6f1-3d9a0c4e7b58
+	fromColumn: Sales.OrderDate
+	toColumn: DimDate.Date
+
+relationship 6f4c1a85-9b2e-4d73-a0c6-8e5d2b7f1c39
+	isActive: false
+	fromColumn: Sales.ShipDate
+	toColumn: DimDate.Date
+

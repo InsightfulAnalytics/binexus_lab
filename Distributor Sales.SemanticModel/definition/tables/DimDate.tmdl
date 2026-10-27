@@ -1,0 +1,604 @@
+table DimDate
+	dataCategory: Time
+	lineageTag: 7a81f561-9e6b-44d7-a00c-f3464a2595e5
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: dd-mmm-yy
+		lineageTag: 2344dc19-a960-4eb9-aeff-693c62a6c694
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: dd319eb6-82cb-4986-b6b6-28cfea87885e
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = User
+
+	column YearOffset
+		dataType: int64
+		formatString: 0
+		displayFolder: zOther
+		lineageTag: 43d2d29a-6aa4-4729-961e-3c566c3f159e
+		summarizeBy: sum
+		sourceColumn: YearOffset
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearCompleted
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		displayFolder: zOther
+		lineageTag: 1b578da1-1907-424a-965f-1eeb08add0b1
+		summarizeBy: none
+		sourceColumn: YearCompleted
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarterOfYear
+		dataType: int64
+		formatString: 0
+		displayFolder: zOther
+		lineageTag: 5d444662-cdb0-4758-a884-68953e84c2f0
+		summarizeBy: sum
+		sourceColumn: QuarterOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Quarter & Year'
+		dataType: string
+		displayFolder: zOther
+		lineageTag: d4b502b4-7eca-43f0-ac56-ed33219971e5
+		summarizeBy: none
+		sourceColumn: Quarter & Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarternYear
+		dataType: int64
+		formatString: 0
+		displayFolder: zOther
+		lineageTag: 11207f0d-934e-450f-a34e-b0d0a2950f9e
+		summarizeBy: sum
+		sourceColumn: QuarternYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarterOffset
+		dataType: int64
+		formatString: 0
+		displayFolder: zOther
+		lineageTag: 274916fc-1de8-4646-93c2-c2534b5e61ea
+		summarizeBy: sum
+		sourceColumn: QuarterOffset
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarterCompleted
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		displayFolder: zOther
+		lineageTag: 9ef60b64-ba74-4f66-8c6d-a9c62ebd7e88
+		summarizeBy: none
+		sourceColumn: QuarterCompleted
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthOfYear
+		dataType: int64
+		formatString: 0
+		displayFolder: zOther
+		lineageTag: 1b6b21ef-b493-4d87-a23b-fe3137317e94
+		summarizeBy: sum
+		sourceColumn: MonthOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfMonth
+		dataType: int64
+		formatString: 0
+		displayFolder: zOther
+		lineageTag: 4a8ca0a7-b07d-4bcd-9f6f-d2311054e8b8
+		summarizeBy: none
+		sourceColumn: DayOfMonth
+
+		annotation SummarizationSetBy = User
+
+	column Month
+		dataType: string
+		displayFolder: zOther
+		lineageTag: 42b2d094-3929-44fc-98fa-bd61e9cf2813
+		summarizeBy: none
+		sourceColumn: Month
+		sortByColumn: MonthOfYear
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name Short'
+		dataType: string
+		displayFolder: zOther
+		lineageTag: 1a771288-09aa-4a06-993f-3ccc7ae099c8
+		summarizeBy: none
+		sourceColumn: Month Name Short
+		sortByColumn: MonthOfYear
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Initial'
+		dataType: string
+		displayFolder: zOther
+		lineageTag: 50b6c962-8e84-41b1-a773-802a201fd8a9
+		summarizeBy: none
+		sourceColumn: Month Initial
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month & Year'
+		dataType: string
+		lineageTag: 88da580f-db5f-42f2-9fc6-55692081f9d6
+		summarizeBy: none
+		sourceColumn: Month & Year
+		sortByColumn: MonthnYear
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthnYear
+		dataType: int64
+		formatString: 0
+		displayFolder: zOther
+		lineageTag: b93067fe-03ed-4631-aca7-27841889781f
+		summarizeBy: sum
+		sourceColumn: MonthnYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthOffset
+		dataType: int64
+		formatString: 0
+		displayFolder: zOther
+		lineageTag: 1b970371-f3ee-4e4c-b6e8-a01455bc1c23
+		summarizeBy: sum
+		sourceColumn: MonthOffset
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthCompleted
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: bc10dd87-b265-4420-906f-bcf9e287d803
+		summarizeBy: none
+		sourceColumn: MonthCompleted
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthEnding
+		dataType: dateTime
+		formatString: dd-mmm-yy
+		displayFolder: zOther
+		lineageTag: 64b60d7b-8d7c-4452-8a1c-b259bd732343
+		summarizeBy: none
+		sourceColumn: MonthEnding
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column DateInt
+		dataType: int64
+		formatString: 0
+		displayFolder: zOther
+		lineageTag: 261a6206-57fc-4f4c-9c0a-740534f797e1
+		summarizeBy: none
+		sourceColumn: DateInt
+
+		annotation SummarizationSetBy = User
+
+	column DayOfWeek
+		dataType: int64
+		formatString: 0
+		displayFolder: zOther
+		lineageTag: 35e8168d-6404-4b63-bcd0-9c276a752887
+		summarizeBy: none
+		sourceColumn: DayOfWeek
+
+		annotation SummarizationSetBy = User
+
+	column DayOfWeekName
+		dataType: string
+		displayFolder: zOther
+		lineageTag: acd6dbd3-762d-4382-a93a-ca420c80f0b0
+		summarizeBy: none
+		sourceColumn: DayOfWeekName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Weekday Initial'
+		dataType: string
+		displayFolder: zOther
+		lineageTag: 757157ce-a6e3-4723-a7cd-4bb13d236f79
+		summarizeBy: none
+		sourceColumn: Weekday Initial
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day Type'
+		dataType: string
+		displayFolder: zOther
+		lineageTag: 6b4e758c-708f-4950-8210-0cc1a9b8cb70
+		summarizeBy: none
+		sourceColumn: Day Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week & Year'
+		dataType: string
+		displayFolder: zOther
+		lineageTag: 56002e3f-8d79-412d-8280-00cfef91768c
+		summarizeBy: none
+		sourceColumn: Week & Year
+		sortByColumn: WeeknYear
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeeknYear
+		dataType: int64
+		formatString: 0
+		displayFolder: zOther
+		lineageTag: d39ee42e-289f-4051-9ffa-6545e3afa2fa
+		summarizeBy: sum
+		sourceColumn: WeeknYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekOffset
+		dataType: int64
+		formatString: 0
+		displayFolder: zOther
+		lineageTag: 99b364b5-45e8-4026-941b-0171f9998be2
+		summarizeBy: sum
+		sourceColumn: WeekOffset
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekCompleted
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		displayFolder: zOther
+		lineageTag: be05d19a-4bd5-4788-af50-287af3511f96
+		summarizeBy: none
+		sourceColumn: WeekCompleted
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekEnding
+		dataType: dateTime
+		formatString: dd-mmm-yy
+		displayFolder: zOther
+		lineageTag: bfb24c48-f7b8-44a4-b137-2f2b4d433737
+		summarizeBy: none
+		sourceColumn: WeekEnding
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column FYear
+		dataType: string
+		displayFolder: zOther
+		lineageTag: f73885b7-fd30-4a42-8f14-6ccbff6423c7
+		summarizeBy: none
+		sourceColumn: FYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column FYearOffset
+		dataType: int64
+		formatString: 0
+		displayFolder: zOther
+		lineageTag: 9f9a5c6e-f4e7-4d22-8341-fa47c008dca2
+		summarizeBy: sum
+		sourceColumn: FYearOffset
+
+		annotation SummarizationSetBy = Automatic
+
+	column FQuarter
+		dataType: string
+		displayFolder: zOther
+		lineageTag: 26ae684b-cd60-425a-9754-2b75fc8133a2
+		summarizeBy: none
+		sourceColumn: FQuarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column FQuarternYear
+		dataType: double
+		displayFolder: zOther
+		lineageTag: 493a7daf-1ff7-42e1-8ed7-50b9a7350755
+		summarizeBy: sum
+		sourceColumn: FQuarternYear
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IsCurrentFQ
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		displayFolder: zOther
+		lineageTag: b97b6fd3-767f-4ff0-98e4-e48f84b33d5f
+		summarizeBy: none
+		sourceColumn: IsCurrentFQ
+
+		annotation SummarizationSetBy = Automatic
+
+	column Period
+		dataType: int64
+		formatString: 0
+		displayFolder: zOther
+		lineageTag: 7ed91279-3367-4166-a0fe-09c2d9aa4cbe
+		summarizeBy: sum
+		sourceColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column FPeriodnYear
+		dataType: double
+		displayFolder: zOther
+		lineageTag: 5fbe4301-7ee2-443a-90ed-3fbb7daeebd6
+		summarizeBy: sum
+		sourceColumn: FPeriodnYear
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IsCurrentFP
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		displayFolder: zOther
+		lineageTag: 3b7d6dab-7f3d-4321-8ebf-d1d37e39cd00
+		summarizeBy: none
+		sourceColumn: IsCurrentFP
+
+		annotation SummarizationSetBy = Automatic
+
+	column FWeek
+		dataType: int64
+		formatString: 0
+		displayFolder: zOther
+		lineageTag: 11f20057-772e-4cdd-b1c5-64370a158180
+		summarizeBy: sum
+		sourceColumn: FWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column FWeeknYear
+		dataType: int64
+		formatString: 0
+		displayFolder: zOther
+		lineageTag: cc63391e-c311-4e6e-b1ed-177e54e9ffad
+		summarizeBy: sum
+		sourceColumn: FWeeknYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCurrentFW
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		displayFolder: zOther
+		lineageTag: 28716f23-7ffe-4059-a409-02e61853bc75
+		summarizeBy: none
+		sourceColumn: IsCurrentFW
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsAfterToday
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		displayFolder: zOther
+		lineageTag: 9d7f201e-f565-464b-b7f1-32e90acfbf3e
+		summarizeBy: none
+		sourceColumn: IsAfterToday
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsWorkingDay
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		displayFolder: zOther
+		lineageTag: 76b10af9-1fca-4ccf-98b8-2e757fa3280e
+		summarizeBy: none
+		sourceColumn: IsWorkingDay
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsHoliday
+		dataType: string
+		displayFolder: zOther
+		lineageTag: 0bc64b48-b303-405e-bc72-9b7423f77703
+		summarizeBy: none
+		sourceColumn: IsHoliday
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsBusinessDay
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		displayFolder: zOther
+		lineageTag: cd863492-684f-4c9f-a19c-d6ede918472a
+		summarizeBy: none
+		sourceColumn: IsBusinessDay
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsPYTD
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		displayFolder: zOther
+		lineageTag: ce0a07c2-1b19-499f-a5a7-56d02650d5b8
+		summarizeBy: none
+		sourceColumn: IsPYTD
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsPFYTD
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		displayFolder: zOther
+		lineageTag: d13cb813-ef12-4d58-b4e5-c178b0d607a8
+		summarizeBy: none
+		sourceColumn: IsPFYTD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year & Month'
+		dataType: string
+		lineageTag: 7b818b0c-8724-4c9b-bc17-d02a5b84addc
+		summarizeBy: none
+		sourceColumn: Year & Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Short & Year'
+		dataType: string
+		lineageTag: 1e81cf5a-66d7-4411-92f0-cb315c9c5fe1
+		summarizeBy: none
+		sourceColumn: Month Short & Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Selection'
+		dataType: string
+		displayFolder: zOther
+		lineageTag: ea13bccb-341c-478d-bc5a-2723b7595dbf
+		summarizeBy: none
+		sourceColumn: Month Selection
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FYear Selection'
+		dataType: string
+		displayFolder: zOther
+		lineageTag: 0d26c69f-e0ae-40fd-862f-9b0af4e21c53
+		summarizeBy: none
+		sourceColumn: FYear Selection
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day & Month'
+		dataType: string
+		displayFolder: zOther
+		lineageTag: 44eadf86-9a70-4574-8735-205419f26c63
+		summarizeBy: none
+		sourceColumn: Day & Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week Ending Short'
+		dataType: string
+		displayFolder: zOther
+		lineageTag: 546e8e21-0768-4dd2-bc66-6054a8bf3c4a
+		summarizeBy: none
+		sourceColumn: Week Ending Short
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayNMonth
+		dataType: double
+		displayFolder: zOther
+		lineageTag: 63c89f51-e408-4a4f-8f46-3ac007ab01a0
+		summarizeBy: none
+		sourceColumn: DayNMonth
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Start Of Month'
+		dataType: dateTime
+		formatString: dd-mmm-yy
+		displayFolder: zOther
+		lineageTag: a98b1437-3676-4abc-96a6-592c9e3ac28e
+		summarizeBy: none
+		sourceColumn: Start Of Month
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column DayOffset
+		dataType: double
+		displayFolder: zOther
+		lineageTag: a817bcd0-9003-4fa6-bb6c-3fb71777ef61
+		summarizeBy: none
+		sourceColumn: DayOffset
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Days in Year'
+		dataType: int64
+		formatString: 0
+		displayFolder: zOther
+		lineageTag: 1e7b6a83-4a8f-472f-b2ac-3818152b0e30
+		summarizeBy: sum
+		sourceColumn: Days in Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Days In Month'
+		dataType: int64
+		formatString: 0
+		displayFolder: zOther
+		lineageTag: 8c878e43-762f-4708-87c8-c23cb39ac427
+		summarizeBy: sum
+		sourceColumn: Days In Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Selection'
+		dataType: string
+		lineageTag: 3b598ef3-596f-4e81-bc0c-17858576f7b8
+		summarizeBy: none
+		sourceColumn: Year Selection
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimDate = m
+		mode: import
+		queryGroup: Model
+		source =
+				let
+				  Source = FunctionDateTable(#date(2024, 1, 1), #date(2026, 12, 31), FiscalStartMonth, null, 1)
+				in
+				  Source
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

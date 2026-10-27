@@ -2,24 +2,6 @@
 table Sales
 	lineageTag: 7f6890e6-6f1a-464a-91ef-d6308aabb4f5
 
-	/// Quantity times unit price, summed over the order lines in the current filter context.
-	measure 'Total Sales' =
-
-			// the order lines in the current filter context
-			VAR __Lines = Sales
-			// each line's sales is its quantity times its unit price; add them up
-			VAR __Result =
-			    SUMX (
-			        __Lines,
-			        Sales[Quantity] * Sales[UnitPrice]
-			    )
-			RETURN
-			    __Result
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
-		lineageTag: 4e35d51e-1955-4bc7-8f61-39589be4c192
-
-		annotation PBI_FormatHint = {"currencyCulture":"en-AU"}
-
 	column OrderNumber
 		dataType: string
 		lineageTag: 6e5a2f77-81b1-47ab-b63e-72d3a531510e
@@ -39,6 +21,7 @@ table Sales
 
 	column OrderDate
 		dataType: dateTime
+		isHidden
 		formatString: Long Date
 		lineageTag: 58811fd5-d395-4c36-8506-4283dbd59fc6
 		summarizeBy: none
@@ -50,6 +33,7 @@ table Sales
 
 	column ShipDate
 		dataType: dateTime
+		isHidden
 		formatString: Long Date
 		lineageTag: d5b3b2fc-9c76-49d5-be88-1ae60e61088c
 		summarizeBy: none
@@ -61,6 +45,7 @@ table Sales
 
 	column CustomerCode
 		dataType: string
+		isHidden
 		lineageTag: 207d99dc-627b-426d-808f-7ff2fc9b0d1e
 		summarizeBy: none
 		sourceColumn: CustomerCode
@@ -69,6 +54,7 @@ table Sales
 
 	column SKU
 		dataType: string
+		isHidden
 		lineageTag: fa682863-097e-4b23-bb2f-fb3c4a2d3b03
 		summarizeBy: none
 		sourceColumn: SKU
@@ -77,6 +63,7 @@ table Sales
 
 	column SupplierCode
 		dataType: string
+		isHidden
 		lineageTag: 03d62097-9db2-4520-bc13-6710a08e1a6d
 		summarizeBy: none
 		sourceColumn: SupplierCode
