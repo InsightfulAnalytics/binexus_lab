@@ -84,6 +84,8 @@ are built.
 |---|---|
 | `m0-start` | Sales, Product, Customer and Supplier, split from the flat export by queries in the `Shipped` group; no relationships, no date table, no measures |
 | `m0-finish` | plus a `Total Sales` measure |
+| `m1-start` | the same as `m0-finish` |
+| `m1-finish` | Sales related to Product, Customer and Supplier; `DimDate` for 2024-2026, marked as the date table, related on OrderDate (ShipDate inactive), with a `FiscalStartMonth` parameter set to July; auto date/time off; the fact's keys hidden; `Total Sales` and `Total Sales by Ship Date` in `Measure Table` |
 
 Your rulebook, the `CLAUDE.md` you write in the course folder, is listed in `.gitignore`, so
 switching to another checkpoint never replaces it.
