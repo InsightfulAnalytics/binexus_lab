@@ -2,6 +2,24 @@
 table Sales
 	lineageTag: 7f6890e6-6f1a-464a-91ef-d6308aabb4f5
 
+	/// Quantity times unit price, summed over the order lines in the current filter context.
+	measure 'Total Sales' =
+
+			// the order lines in the current filter context
+			VAR __Lines = Sales
+			// each line's sales is its quantity times its unit price; add them up
+			VAR __Result =
+			    SUMX (
+			        __Lines,
+			        Sales[Quantity] * Sales[UnitPrice]
+			    )
+			RETURN
+			    __Result
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 4e35d51e-1955-4bc7-8f61-39589be4c192
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-AU"}
+
 	column OrderNumber
 		dataType: string
 		lineageTag: 6e5a2f77-81b1-47ab-b63e-72d3a531510e
