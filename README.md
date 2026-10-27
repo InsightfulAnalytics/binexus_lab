@@ -15,11 +15,13 @@ per module.
    ```
    powershell -ExecutionPolicy Bypass -File C:\binexus_lab\check-setup.ps1
    ```
-3. Check out the module you are starting, then open `Distributor Sales.pbip` in Power BI
-   Desktop and select **Refresh**. The project is saved without data, so it opens empty.
+3. Make a branch of your own from the module you are starting, then open
+   `Distributor Sales.pbip` in Power BI Desktop and select **Refresh**. The project is saved
+   without data, so it opens empty.
    ```
-   git -C C:\binexus_lab checkout m0-start
+   git -C C:\binexus_lab switch -c my-work m0-start
    ```
+   To start a later module fresh, branch from its start tag: `git switch -c module-4 m4-start`.
 
 ## The data
 
